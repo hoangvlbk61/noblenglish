@@ -7,34 +7,48 @@ const LogoWrapper = styled.div`
   width: fit-content;
   height: fit-content;
   max-height: 4rem;
+  max-width: 4rem;
+  padding: 0.5rem 0.25rem;
 `
 
+// min-width: 10rem;
 const NavItem = styled.div`
-  min-width: 5rem;
+  width: 100%;
   display: flex; 
   justify-content: center; 
   align-items: center;
+  :hover {
+    background: #89D0CA;
+    font-size: 1.25rem;
+    color: white;
+    transition: background, font-size 200ms linear;
+  }
+  a {
+    color: #89D0CA !important;
+    :hover {
+      color: white !important;
+
+    }
+  }
 `
 
 export default function Home() {
   return (
     <div className={"u-body u-xl-mode"}>
       <header className="u-clearfix u-header u-header" id="sec-85c8">
-        <div className=" flex flex-row">
-          {/* <a href="https://nicepage.com" className="u-image u-logo u-image-1">
-          </a> */}
+        <div className=" flex flex-row px-4 w-100">
           <LogoWrapper>
-            <Image src="/30a80ec42b1f060f82141484a3c900bcf93da1b1/images/default-logo.png" className="u-logo-image u-logo-image-1" alt={"logo"} width={100} height={100} />
+            <Image src="/logoColor2.png" className="u-logo-image u-logo-image-1" alt={"logo"} width={100} height={100} />
           </LogoWrapper>
-          <div>
+          <div className="flex justify-around flex-row grow">
             <div className="flex justify-around flex-row">
-              <Link href="/" className="px-1"> <NavItem > Home </NavItem></Link>
-              <Link href="/" className="px-1"> <NavItem > About </NavItem></Link>
-              <Link href="/" className="px-1"> <NavItem > Courses </NavItem></Link>
-              <Link href="/" className="px-1"> <NavItem > Library </NavItem></Link>
-              <Link href="/" className="px-1"> <NavItem > Event </NavItem></Link>
-              <Link href="/" className="px-1"> <NavItem > Recuitment </NavItem></Link >
-              <Link href="/" className="px-1"> <NavItem > Contact </NavItem></Link >
+              <Link href="/" className="px-2 justify-center align-center w-40 min-w-max flex align-center red"> <NavItem> Home </NavItem> </Link> 
+              <Link href="/about" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> About </NavItem> </Link> 
+              <Link href="/courses" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Courses </NavItem> </Link> 
+              <Link href="/libs" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Library </NavItem> </Link> 
+              <Link href="/events" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Event </NavItem> </Link> 
+              <Link href="/recuitment" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Recuitment </NavItem> </Link > 
+              <Link href="/contact" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Contact </NavItem> </Link > 
             </div >
           </div >
         </div >
@@ -410,7 +424,7 @@ export default function Home() {
                 </g>
                   </g></svg></span>
                   <h5 className="u-text u-text-3">Call Us</h5>
-                  <p className="u-text u-text-4">1 (234) 567-891, 1 (234) 987-654</p>
+                  <p className="u-text u-text-4">0919066123</p>
                 </div>
               </div>
               <div className="u-container-style u-list-item u-palette-5-dark-3 u-repeater-item u-list-item-2">
@@ -420,14 +434,14 @@ export default function Home() {
                 </g>
                   </g></svg></span>
                   <h5 className="u-text u-text-5">Location</h5>
-                  <p className="u-text u-text-6">121 Rock Sreet, 21 Avenue, New York, NY 92103-9000</p>
+                  <p className="u-text u-text-6">55 Hoang Hoa Tham Str, Ba Dinh, Hanoi, Vietnam 🇻🇳 </p>
                 </div>
               </div>
               <div className="u-container-style u-list-item u-palette-5-dark-3 u-repeater-item u-list-item-3">
                 <div className="u-container-layout u-similar-container u-valign-top-xl u-container-layout-4"><span className="u-icon u-icon-circle u-text-white u-icon-3"><svg className="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" ><use xlinkHref="#svg-5ed3"></use></svg><svg className="u-svg-content" viewBox="0 0 512 512" id="svg-5ed3"><g><path d="m386.058 256c0-8.284 6.716-15 15-15h31.587c-7.224-85.814-75.831-154.421-161.645-161.645v31.588c0 8.284-6.716 15-15 15s-15-6.716-15-15v-31.588c-85.814 7.224-154.421 75.831-161.645 161.645h31.587c8.284 0 15 6.716 15 15s-6.716 15-15 15h-31.587c7.224 85.814 75.831 154.421 161.645 161.645v-31.588c0-8.284 6.716-15 15-15s15 6.716 15 15v31.588c85.814-7.224 154.421-75.831 161.645-161.645h-31.587c-8.284 0-15-6.716-15-15zm-39.467-71.629-79.838 82.087c-5.558 5.714-14.618 6.086-20.625.835l-59.598-52.101c-6.237-5.452-6.873-14.929-1.42-21.165 5.452-6.237 14.928-6.875 21.166-1.421l48.889 42.739 69.921-71.891c5.776-5.938 15.273-6.069 21.211-.295 5.938 5.778 6.07 15.274.294 21.212z"></path><path d="m256 0c-141.159 0-256 114.841-256 256s114.841 256 256 256 256-114.841 256-256-114.841-256-256-256zm0 463.286c-114.298 0-207.286-92.988-207.286-207.286s92.988-207.286 207.286-207.286 207.286 92.988 207.286 207.286-92.988 207.286-207.286 207.286z"></path>
                 </g></svg></span>
                   <h5 className="u-text u-text-7">Business Hours</h5>
-                  <p className="u-text u-text-8">Mon – Fri …… 10 am – 8 pm, Sat, Sun ....… Closed</p>
+                  <p className="u-text u-text-8">Mon – Fri …… 10 am – 8 pm </p> <p>Sat, Sun ....… Closed</p>
                 </div>
               </div>
             </div>
@@ -436,9 +450,43 @@ export default function Home() {
       </section>
 
 
-      <footer className="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-266b"><div className="u-clearfix u-sheet u-sheet-1">
-        <p className="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-      </div></footer>
+      <footer className="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-266b">
+        <div className="u-clearfix u-sheet u-sheet-1">
+          <div className='mt-4'>
+            <div className='grid grid-cols-3 gap-4'>
+              <div className='flex flex-col'>
+                <div className='grid grid-cols-3 gap-4 h-fit'>
+                  <Image src="/logoColor2.png" className={"rounded-md col-span-1"} alt="" width={100} height={100}/>
+                  <div className={"col-span-2 flex justify-start items-center"}>
+                    <div className='flex align-center flex-col'>
+                    <b> Noble English </b>
+                    <div><i> Broaden your horizons </i></div>
+                    </div>
+                  </div>
+                </div>
+                <div className='flex flex-start mt-4'> 
+                  <span> Follow us on: </span>
+                  <span>  </span>
+                </div>
+              </div>
+              <div className='grid-cols-2 text-left'>
+                <b>Cơ sở Noble English</b>
+                <br/>
+                <div>
+                  <b> Tại Hà Nội: </b>
+                  <div>Đang hoàn thiện ... </div>
+                </div>
+                <br/>
+                <div>
+                  <b> Tại Sài Gòn: </b>
+                  <div> Đang hoàn thiện ... (Dự kiến 2024) </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
       <section className="u-backlink u-clearfix u-grey-80">
         <a className="u-link" href="https://nicepage.com/website-templates" target="_blank" rel="noreferrer">
           <span>Website Templates</span>
