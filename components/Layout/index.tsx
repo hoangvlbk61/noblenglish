@@ -41,7 +41,7 @@ type LayoutProp = {
 const Layout = ({ children }: LayoutProp) => {
     return (
         <div className={"u-body u-xl-mode min-h-screen flex flex-col "}>
-            <header className="z-100 u-clearfix u-header u-header sticky top-0 bg-white" id="sec-85c8" style={{zIndex: 10}}>
+            <header className="z-100 u-clearfix u-header u-header sticky top-0 bg-white" id="sec-85c8" style={{zIndex: 10, minHeight: "4rem"}}>
                 <div className=" flex flex-row px-4 w-100">
                     <LogoWrapper>
                         <Image src="/logoColor2.png" className="u-logo-image u-logo-image-1" alt={"logo"} width={100} height={100} />
