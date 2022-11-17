@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Facebook } from "react-bootstrap-icons";
 
 const LogoWrapper = styled.div`
   width: fit-content;
@@ -77,9 +78,9 @@ const Layout = ({ children }: LayoutProp) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='flex flex-start mt-4'>
+                                    <div className='flex flex-start mt-4 items-center'>
                                         <span> Follow us on: </span>
-                                        <span>  </span>
+                                        <div className="ml-2"> <Link href="https://facebook.com/NobleEnglish" className="flex flex-row items-center"> <Facebook className="mx-2"/> Noble English </Link> </div>
                                     </div>
                                 </div>
                                 <div className='grid-cols-2 text-left'>

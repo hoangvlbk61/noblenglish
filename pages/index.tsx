@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link';
 
-
 export default function Home() {
   return (
     // <div className={"u-body u-xl-mode"}>
@@ -470,6 +469,6 @@ export default function Home() {
         </a>.
       </section>
     </div > */}
-      </>
+    </>
   )
 }
