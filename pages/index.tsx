@@ -1,58 +1,30 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link';
-import styled from 'styled-components';
 
-const LogoWrapper = styled.div`
-  width: fit-content;
-  height: fit-content;
-  max-height: 4rem;
-  max-width: 4rem;
-  padding: 0.5rem 0.25rem;
-`
-
-// min-width: 10rem;
-const NavItem = styled.div`
-  width: 100%;
-  display: flex; 
-  justify-content: center; 
-  align-items: center;
-  :hover {
-    background: #89D0CA;
-    font-size: 1.25rem;
-    color: white;
-    transition: background, font-size 200ms linear;
-  }
-  a {
-    color: #89D0CA !important;
-    :hover {
-      color: white !important;
-
-    }
-  }
-`
 
 export default function Home() {
   return (
-    <div className={"u-body u-xl-mode"}>
-      <header className="u-clearfix u-header u-header" id="sec-85c8">
-        <div className=" flex flex-row px-4 w-100">
-          <LogoWrapper>
-            <Image src="/logoColor2.png" className="u-logo-image u-logo-image-1" alt={"logo"} width={100} height={100} />
-          </LogoWrapper>
-          <div className="flex justify-around flex-row grow">
-            <div className="flex justify-around flex-row">
-              <Link href="/" className="px-2 justify-center align-center w-40 min-w-max flex align-center red"> <NavItem> Home </NavItem> </Link> 
-              <Link href="/about" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> About </NavItem> </Link> 
-              <Link href="/courses" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Courses </NavItem> </Link> 
-              <Link href="/libs" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Library </NavItem> </Link> 
-              <Link href="/events" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Event </NavItem> </Link> 
-              <Link href="/recuitment" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Recuitment </NavItem> </Link > 
-              <Link href="/contact" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Contact </NavItem> </Link > 
-            </div >
-          </div >
-        </div >
-      </header >
+    // <div className={"u-body u-xl-mode"}>
+    //   <header className="u-clearfix u-header u-header" id="sec-85c8">
+    //     <div className=" flex flex-row px-4 w-100">
+    //       <LogoWrapper>
+    //         <Image src="/logoColor2.png" className="u-logo-image u-logo-image-1" alt={"logo"} width={100} height={100} />
+    //       </LogoWrapper>
+    //       <div className="flex justify-around flex-row grow">
+    //         <div className="flex justify-around flex-row">
+    //           <Link href="/" className="px-2 justify-center align-center w-40 min-w-max flex align-center red"> <NavItem> Home </NavItem> </Link> 
+    //           <Link href="/about" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> About </NavItem> </Link> 
+    //           <Link href="/courses" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Courses </NavItem> </Link> 
+    //           <Link href="/libs" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Library </NavItem> </Link> 
+    //           <Link href="/events" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Event </NavItem> </Link> 
+    //           <Link href="/recuitment" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Recuitment </NavItem> </Link > 
+    //           <Link href="/contact" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Contact </NavItem> </Link > 
+    //         </div >
+    //       </div >
+    //     </div >
+    //   </header >
+    <>
       <section className="u-clearfix u-image u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-section-2" id="sec-832e">
         <div className="u-clearfix u-layout-wrap u-layout-wrap-1">
           <div className="u-gutter-0 u-layout">
@@ -449,8 +421,7 @@ export default function Home() {
         </div>
       </section>
 
-
-      <footer className="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-266b">
+      {/* <footer className="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-266b">
         <div className="u-clearfix u-sheet u-sheet-1">
           <div className='mt-4'>
             <div className='grid grid-cols-3 gap-4'>
@@ -498,6 +469,7 @@ export default function Home() {
           <span>Website Builder Software</span>
         </a>.
       </section>
-    </div >
+    </div > */}
+      </>
   )
 }
