@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook } from "react-bootstrap-icons";
+import { Facebook, List } from "react-bootstrap-icons";
+import cl from "classnames";
+import { useRouter } from 'next/router';
 
 const LogoWrapper = styled.div`
   width: fit-content;
@@ -20,7 +22,7 @@ const NavItem = styled.div`
   justify-content: center; 
   align-items: center;
   :hover {
-    background: #89D0CA;
+    background: #89D0CA !important;
     font-size: 1.25rem;
     color: white;
     transition: background, font-size 200ms linear;
@@ -32,36 +34,81 @@ const NavItem = styled.div`
 
     }
   }
+  &.active {
+    background: #89D0CA;
+    color: white;
+  }
+`
+
+const Headers = styled.div`
+    @media (max-width: 750px) {
+        display: none;
+    }
+`
+
+const NavResponsive = styled.div`
+    display: none;
+    cursor: pointer;
+    @media (max-width: 750px) {
+        display: flex;
+    }
 `
 
 type LayoutProp = {
     children: any,
 }
 
+
+
 const Layout = ({ children }: LayoutProp) => {
+    const [isOpen, setOpen] = useState(false);
+    const router = useRouter();
+    console.log("🚀 ~ file: index.tsx ~ line 66 ~ Layout ~ router", router.route === "/about")
+    function openNav() {
+        setOpen(true)
+    }
+
+    function closeNav() {
+        setOpen(false)
+    }
     return (
         <div className={"u-body u-xl-mode min-h-screen flex flex-col "}>
-            <header className="z-100 u-clearfix u-header u-header sticky top-0 bg-white" id="sec-85c8" style={{zIndex: 10, minHeight: "4rem"}}>
-                <div className=" flex flex-row px-4 w-100">
+            <header className="z-100 u-clearfix u-header u-header sticky top-0 bg-white" id="sec-85c8" style={{ zIndex: 11, minHeight: "4rem" }}>
+                <div className=" flex flex-row justify-between px-4 w-100">
                     <LogoWrapper>
                         <Image src="/logoColor2.png" className="u-logo-image u-logo-image-1" alt={"logo"} width={100} height={100} />
                     </LogoWrapper>
-                    <div className="flex justify-around flex-row grow">
+                    <Headers className="flex justify-around flex-row grow">
                         <div className="flex justify-around flex-row">
-                            <Link href="/" className="px-2 justify-center align-center w-40 min-w-max flex align-center red"> <NavItem> Home </NavItem> </Link>
-                            <Link href="/about" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> About </NavItem> </Link>
-                            <Link href="/courses" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Courses </NavItem> </Link>
-                            <Link href="/libs" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Library </NavItem> </Link>
-                            <Link href="/events" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Event </NavItem> </Link>
-                            <Link href="/recuitment" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Recuitment </NavItem> </Link >
-                            <Link href="/contact" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem> Contact </NavItem> </Link >
+                            <Link href="/" className="px-2 justify-center align-center w-40 min-w-max flex align-center "> <NavItem className={cl({"active": router.route === "/"})}> Home </NavItem> </Link>
+                            <Link href="/about" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem className={cl({"active": router.route === "/about"})}> About </NavItem> </Link>
+                            <Link href="/courses" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem className={cl({"active": router.route === "/courses"})}> Courses </NavItem> </Link>
+                            {/* <Link href="/libs" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem className={cl({"active": router.route === "/libs"})}> Library </NavItem> </Link>
+                            <Link href="/events" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem className={cl({"active": router.route === "/events"})}> Event </NavItem> </Link>
+                            <Link href="/recuitment" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem className={cl({"active": router.route === "/recuitment"})}> Recuitment </NavItem> </Link >
+                            <Link href="/contact" className="px-2 justify-center align-center w-40 min-w-max flex align-center"> <NavItem className={cl({"active": router.route === "/contact"})}> Contact </NavItem> </Link > */}
                         </div >
-                    </div >
+                    </Headers >
+                    <NavResponsive onClick={openNav} className="flex items-center text-3xl">
+                        <List />
+                    </NavResponsive>
+                    <div id="myNav" className="overlay" style={{ height: isOpen ? "100%" : "0%" }}>
+                        <a className="closebtn" onClick={closeNav}>&times;</a>
+                        <div className="overlay-content">
+                            <Link onClick={closeNav} href="/">Home</Link>
+                            <Link onClick={closeNav} href="/about">About</Link>
+                            <Link onClick={closeNav} href="/courses">Courses</Link>
+                            {/* <Link onClick={closeNav} href="/libs">Library</Link>
+                            <Link onClick={closeNav} href="/events">Event</Link>
+                            <Link onClick={closeNav} href="/recuitment">Recuitment</Link>
+                            <Link onClick={closeNav} href="/contact">Contact</Link> */}
+                        </div>
+                    </div>
                 </div >
             </header >
             <div className="grow">
 
-            {children}
+                {children}
             </div>
             <div className="">
                 <footer className="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-266b">
@@ -80,7 +127,7 @@ const Layout = ({ children }: LayoutProp) => {
                                     </div>
                                     <div className='flex flex-start mt-4 items-center'>
                                         <span> Follow us on: </span>
-                                        <div className="ml-2"> <Link href="https://facebook.com/NobleEnglish" className="flex flex-row items-center"> <Facebook className="mx-2"/> Noble English </Link> </div>
+                                        <div className="ml-2"> <Link href="https://facebook.com/NobleEnglish" className="flex flex-row items-center"> <Facebook className="mx-2" /> Noble English </Link> </div>
                                     </div>
                                 </div>
                                 <div className='grid-cols-2 text-left'>
